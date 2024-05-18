@@ -29,20 +29,22 @@ const displayPlayers = (players, limit) => {
 
     limitPlayers.forEach(player => {
 
-        if (!player?.strThumb) {
-            return;
-        }
-
+        // if (!player?.strThumb) {
+        //     return;
+        // }
+        
         const cardDiv = document.createElement("div")
         cardDiv.classList.add("card")
         const description = player.strDescriptionEN ? player.strDescriptionEN.slice(0, 11) : "Not available";
+        
+        const image = player.strThumb ? player.strThumb : "./Images/user.jpg";
 
         const instagramLink = player.strInstagram ? `<a href="https://${player.strInstagram}" target="_blank"><i class="fa-brands fa-instagram"></i></a>` : '<i class="fa-solid fa-ban"></i>';
 
         const facebookLink = player.strFacebook ? `<a href="https://${player.strFacebook}" target="_blank"><i class="fa-brands fa-facebook"></i></a>` : '<i class="fa-solid fa-ban"></i> ';
 
         cardDiv.innerHTML = `
-        <img src="${player.strThumb}" class="card-img-top img-fluid" alt="card-img">
+        <img src="${image}" class="card-img-top img-fluid" alt="card-img">
         <div class="card-body">
             <h6>Name : ${player.strPlayer}</h6>
             <p>Country : ${player.strNationality}</p>
@@ -93,6 +95,7 @@ const showDetails = (playerId) => {
 // modal showing
 const showPlayersDetails = (details) => {
     details.forEach(detail => {
+        const status = detail.strStatus ? detail.strStatus : "Unavailable"
         const description = detail.strDescriptionEN ? detail.strDescriptionEN.slice(0, 160) : "Not available";
         console.log(detail)
         document.getElementById("playerDetailsLabel").innerText = detail.strPlayer;
@@ -103,6 +106,7 @@ const showPlayersDetails = (details) => {
             <p>Sport : ${detail.strSport}</p>
             <p>Team : ${detail.strTeam}</p>
             <p>Country : ${detail.strNationality}</p>
+            <p>Status : ${status}</p>
             <p>Desc : ${description}</p>
         `
     });
