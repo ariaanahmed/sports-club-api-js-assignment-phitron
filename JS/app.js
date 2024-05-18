@@ -140,6 +140,10 @@ const handleAddToCart = (name, button) => {
     button.disabled = true;
 }
 
+// update footer date
 
+const yearSpan = document.querySelector("#currentYear")
+const currentYear =  new Date()
+yearSpan.innerText = currentYear.getFullYear()
 
 loadPlayers('g', true)
