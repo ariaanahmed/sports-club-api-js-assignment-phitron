@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Club</title>
+  <link rel="shortcut icon" href="./Images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./Style/style.css">
+  <link rel="stylesheet" href="./bootstrap-5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img style="width: 45px;" src="./Images/favicon.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Athletes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+
+    <!-- search section -->
+    <section class="container py-5 mt-3 bg-light shadow-sm rounded-4 border">
+      <div class="d-flex px-0 gap-3 gap-md-0 gap-lg-0 px-lg-3 flex-column flex-md-row flex-lg-row ">
+
+        <input class="form-control me-2 border-1" type="search" placeholder="Search" aria-label="Search"
+          id="search-field">
+        <button class="btn btn-primary" type="submit" id="search-btn">Search</button>
+      </div>
+    </section>
+    <p id="errorMessage" class="text-center mt-3 text-danger fw-bold"></p>
+
+    <!-- normal loaded image cards -->
+    <section class="container my-5">
+      <div class="row d-sm-flex flex-column-reverse flex-md-row flex-lg-row ">
+        <div class="col-md-9 col-lg-9 col-12 border mb-2 mb-lg-0 rounded-4">
+          <div id="card-container" class="p-2 py-lg-5">
+
+          </div>
+        </div>
+
+        <div class="col-md-3 col-lg-3 col-12 border mb-2 mb-lg-0 rounded-4">
+
+        </div>
+
+      </div>
+    </section>
+    <section class="container">
+      <!-- Modal -->
+      <div class="modal fade" id="playerDetails" tabindex="-1" aria-labelledby="playerDetailsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="playerDetailsLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="playerDetaiBody" class="modal-body">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+
+  <script src="./bootstrap-5.3.3/js/bootstrap.js"></script>
+  <script src="./JS/app.js"></script>
+</body>
+
+</html>
