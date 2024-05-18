@@ -26,16 +26,14 @@ const displayPlayers = (players, limit) => {
         limitPlayers = players;
     }
 
-
     limitPlayers.forEach(player => {
-
         if (!player?.strThumb) {
             return;
         }
 
         const cardDiv = document.createElement("div")
         cardDiv.classList.add("card")
-        const description = player.strDescriptionEN ? player.strDescriptionEN.slice(0, 11) : "Not available";
+        const description = player.strDescriptionEN ? player.strDescriptionEN.slice(0, 100) : "Not available";
 
         const instagramLink = player.strInstagram ? `<a href="https://${player.strInstagram}" target="_blank"><i class="fa-brands fa-instagram"></i></a>` : '<i class="fa-solid fa-ban"></i>';
 
@@ -78,7 +76,6 @@ displaySearch.addEventListener("click", () => {
     }
 })
 
-
 // show details
 const showDetails = (playerId) => {
     const url = `https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id=${playerId}`;
@@ -109,33 +106,24 @@ const showPlayersDetails = (details) => {
 }
 
 // handle add to cart
-
 const handleAddToCart = (name, button) => {
     const cartCount = document.getElementById("totalCount").innerText;
     let convertedCartCount = parseInt(cartCount);
-
-    if (convertedCartCount >= 11) {
-        alert("Already Full");
-        return;
-    }
-
     convertedCartCount = convertedCartCount + 1;
+
     document.getElementById("totalCount").innerText = convertedCartCount;
 
     const cartContainer = document.getElementById("card-body")
-    const cartBody = document.createElement("card-body")
-    cartBody.classList.add("card-body")
+    const cartBody = document.createElement("li")
+    cartBody.classList.add("list-group-item")
 
-    cartBody.innerHTML = ` 
-        <li class="list-group-item">${name}</li>
-    `
     cartBody.innerHTML = name;
     cartContainer.appendChild(cartBody);
 
+    // Change button text to "Added"
     button.innerText = "Added";
     button.disabled = true;
 }
 
-
-
+// Initial load
 loadPlayers('g', true)
