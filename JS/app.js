@@ -100,8 +100,10 @@ const showPlayersDetails = (details) => {
         const playerDetailContainer = document.getElementById("playerDetaiBody");
         playerDetailContainer.innerHTML = `
             <img src="${detail.strThumb}" class="img-fluid" alt="card-img">
-            <p>Country : ${detail.strNationality}</p>
+            <p>Gender : ${detail.strGender}</p>
+            <p>Sport : ${detail.strSport}</p>
             <p>Team : ${detail.strTeam}</p>
+            <p>Country : ${detail.strNationality}</p>
             <p>Desc : ${description}</p>
         `
     });
